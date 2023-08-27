@@ -1,0 +1,30 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore idea for time being
+.idea/*
+!.idea/codeStyles
+#!.idea/inspectionProfiles
+!.idea/compiler.xml
+!.idea/kotlinc.xml
+out/
+
+compiler.xml
+
+# Ignore Gradle build output directory
+build
+events.log
+
+# Ignore local app configs
+config/local
+config/application.conf
+config/application.override.conf
+config/generated/
+
+.run/ignore.*
+
+# ignore fetched java agent when building docker images locally
+java-agent
+
+# Mac specific
+.DS_Store

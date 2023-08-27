@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="uno-service" type="Application" factoryName="Application" folderName="uno">
+    <option name="MAIN_CLASS_NAME" value="necasond.uno.Main" />
+    <module name="microservices.uno.service.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
