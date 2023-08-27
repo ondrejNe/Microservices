@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="dos-service" type="Application" factoryName="Application" folderName="dos">
+    <option name="MAIN_CLASS_NAME" value="necasond.dos.Main" />
+    <module name="microservices.dos.service.main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

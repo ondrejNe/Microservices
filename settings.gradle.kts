@@ -1,7 +1,5 @@
 rootProject.name = "microservices"
 
-include("uno.service")
-
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
@@ -15,3 +13,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+include("uno.service")
+include("dos.service")
