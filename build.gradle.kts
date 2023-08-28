@@ -30,12 +30,6 @@ tasks.register("generateRunConfig") {
     }
 }
 
-//subprojects {
-//    dependencies {
-//        val libs = rootProject.libs
-//    }
-//}
-
 private val newLine = System.lineSeparator()
 
 fun templateRunConfig(runName: String, moduleName: String, mainClassName: String, folderName: String): String {
