@@ -6,9 +6,7 @@ dependencyResolutionManagement {
             from(files("libs.versions.toml"))
         }
     }
-}
 
-dependencyResolutionManagement {
     repositories {
         mavenCentral()
     }

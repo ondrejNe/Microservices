@@ -64,7 +64,7 @@ fun generateRunConfig(rootProject: Project) {
                 currentProject = currentProject.parent
                 moduleName = currentProject.name + "." + moduleName
             }
-
+            print("Java major version: $javaMajorVersion")
             val runFileName =
                 if ((firstParentName != rootProjectName)) "$firstParentName.$moduleNameEnd"
                 else moduleNameEnd
