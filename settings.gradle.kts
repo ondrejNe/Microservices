@@ -1,3 +1,6 @@
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
+}
 rootProject.name = "microservices"
 
 dependencyResolutionManagement {
@@ -6,11 +9,10 @@ dependencyResolutionManagement {
             from(files("libs.versions.toml"))
         }
     }
-
-    repositories {
-        mavenCentral()
-    }
 }
 
-include("uno.service")
-include("dos.service")
+include("services:uno.service")
+include("services:dos.service")
+include("api")
+include("shared")
+
