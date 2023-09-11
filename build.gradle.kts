@@ -5,10 +5,16 @@ plugins {
     kotlin("jvm") version kotlinVersion
 }
 
-val javaMajorVersion = Integer.parseInt(JavaVersion.VERSION_17.majorVersion)
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+val javaMajorVersion = libs.versions.java.get().toInt()
 
 kotlin {
     jvmToolchain(javaMajorVersion)
+
     target {
         compilations.all {
             compilerOptions.configure {
@@ -53,18 +59,14 @@ fun generateRunConfig(rootProject: Project) {
     val rootProjectName = rootProject.name
     rootProject.subprojects
         .forEach {
-            println(it.toString())
             val moduleNameEnd = it.name
             var moduleName = it.name
             var currentProject = it
-            var previousProject: Project? = null
             val firstParentName = currentProject.parent?.name
             while (currentProject.name != rootProjectName) {
-                previousProject = currentProject
                 currentProject = currentProject.parent
                 moduleName = currentProject.name + "." + moduleName
             }
-            print("Java major version: $javaMajorVersion")
             val runFileName =
                 if ((firstParentName != rootProjectName)) "$firstParentName.$moduleNameEnd"
                 else moduleNameEnd

@@ -1,5 +1,11 @@
 [versions]
-kotlin = "1.8.21"
+# Kotlin
+kotlin = "1.9.10"
+# Java
+java = "17"
+
+# Plugins
+ktlint = "11.5.1"
 
 # Testing
 mockito = "4.9.0"
@@ -9,7 +15,6 @@ kotlinTestJunit5 = "1.7.20"
 
 # plugins
 dockerRemoteApi = "6.1.4"
-ktlint = "10.2.1"
 openapiTools = "6.6.0"
 
 [libraries]
@@ -75,5 +80,5 @@ swaggerModels = { module = "io.swagger.core.v3:swagger-models" }
 javaxAnnotationApi = { module = "javax.annotation:javax.annotation-api" }
 
 [plugins]
-ktlint = {id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint"}
-openapiGenerator = {id = "org.openapi.generator", version.ref = "openapiTools"}
+ktlintPlugin = {id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+openapiGenerator = {id = "org.openapi.generator", version.ref = "openapiTools" }
