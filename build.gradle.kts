@@ -5,11 +5,6 @@ plugins {
     kotlin("jvm") version kotlinVersion
 }
 
-repositories {
-    mavenCentral()
-    gradlePluginPortal()
-}
-
 val javaMajorVersion = libs.versions.java.get().toInt()
 
 kotlin {
@@ -28,6 +23,11 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(javaMajorVersion))
     }
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
 }
 
 tasks.register("generateRunConfig") {
