@@ -20,5 +20,5 @@ plugins {
 }
 
 include("services:uno.service")
-include("services:dos.service")
 include("services:weather.service")
+include("services:powerplant.registry.service")

@@ -1,12 +1,17 @@
 import org.gradle.api.plugins.internal.DefaultJavaApplication
 
 plugins {
-    val kotlinVersion = libs.versions.kotlin
-    kotlin("jvm") version kotlinVersion
+    // JVM
+    java
+    kotlin("jvm") version libs.versions.kotlin
 }
 
 val javaMajorVersion = libs.versions.java.get().toInt()
-
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(javaMajorVersion))
+    }
+}
 kotlin {
     jvmToolchain(javaMajorVersion)
 
@@ -16,12 +21,6 @@ kotlin {
                 allWarningsAsErrors.set(false)
             }
         }
-    }
-}
-
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(javaMajorVersion))
     }
 }
 
