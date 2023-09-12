@@ -1,6 +1,5 @@
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
-import org.jetbrains.kotlin.gradle.plugin.extraProperties
 
 plugins {
     val kotlinVersion = libs.versions.kotlin
