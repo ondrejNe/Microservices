@@ -76,7 +76,7 @@ fun generateRunConfig(rootProject: Project) {
                 else "^([^-]+)-".toRegex().find(runName)?.groupValues?.get(1)
 
             val runContent = templateRunConfig(runName, moduleName, (it.extensions["application"] as DefaultJavaApplication).mainClass.get(), moduleType!!)
-            rootProject.file(".run/$runFileName.run.xml").writeText(runContent);
+            rootProject.file(".run/$runFileName.run.xml").writeText(runContent)
             println("Run configuration generated for $runName")
         }
 }

@@ -6,6 +6,8 @@ java = "17"
 
 # Plugins
 ktlint = "11.5.1"
+dockerRemoteApi = "9.3.2"
+docekrJavaApplication = "9.3.2"
 
 # Testing
 mockito = "4.9.0"
@@ -14,7 +16,6 @@ mockitoJunitJupiter = "4.9.0"
 kotlinTestJunit5 = "1.7.20"
 
 # plugins
-dockerRemoteApi = "6.1.4"
 openapiTools = "6.6.0"
 
 [libraries]
