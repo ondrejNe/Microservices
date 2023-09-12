@@ -3,22 +3,23 @@
 kotlin = "1.9.10"
 # Java
 java = "17"
-
-# Plugins
+# Spring
+kotlinSpring = "1.9.10"
+# Open API
+openapiTools = "6.6.0"
+# Linter
 ktlint = "11.5.1"
+# Docker
 dockerRemoteApi = "9.3.2"
 docekrJavaApplication = "9.3.2"
-
 # Testing
 mockito = "4.9.0"
 mockitoKotlin = "4.0.0"
 mockitoJunitJupiter = "4.9.0"
 kotlinTestJunit5 = "1.7.20"
 
-# plugins
-openapiTools = "6.6.0"
-
 [libraries]
+# Kotlin
 kotlinCoroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
 kotlinCoroutinesJdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8" }
 kotlinCoroutinesDebug = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-debug" }
@@ -26,17 +27,17 @@ kotlinCoroutinesMdc = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j
 kotlinSerializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core" }
 kotlinSerializationJson = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json" }
 kotlinReflections = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
-
 kotlinImmutableCollections = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable" }
+# Typing & Annotations
 typesafeConfig = { module = "com.typesafe:config" }
 jetbrainsAnnotations = { module = "org.jetbrains:annotations" }
 slf4jApi = { module = "org.slf4j:slf4j-api" }
 jclOverSlf4j = { module = "org.slf4j:jcl-over-slf4j" }
+# Logging
 logbackCore = { module = "ch.qos.logback:logback-core" }
 logbackClassic = { module = "ch.qos.logback:logback-classic" }
 logbackLogstashEncoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "6.6" }
 logzioLogbackAppender = { module = "io.logz.logback:logzio-logback-appender", version = "1.0.24" }
-
 # Testing
 junitJupiterApi = { module = "org.junit.jupiter:junit-jupiter-api" }
 junitJupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine" }
@@ -49,31 +50,19 @@ assertJ = { module = "org.assertj:assertj-core" }
 kotlinCoroutineTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test" }
 ktorServerTestHost = { module = "io.ktor:ktor-server-test-host" }
 mockk = { module = "io.mockk:mockk" }
-
-# spring
+# Spring
 springMessaging = { module = "org.springframework:spring-messaging" }
 springWebSocket = { module = "org.springframework:spring-websocket" }
 jettyWebSocketClient = { module = "org.eclipse.jetty.websocket:websocket-client" }
 jettyJavaxWebSocketClientImpl = { module = "org.eclipse.jetty.websocket:javax-websocket-client-impl" }
-
-# Spring boot
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }
 springBootStarterValidation = { module = "org.springframework.boot:spring-boot-starter-validation" }
 springBootActuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
 springBootDataRest = { module = "org.springframework.boot:spring-boot-starter-data-rest" }
 springBootJacksonKotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 springBootKotlinStdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8" }
-
 springBootStarterSecurity = { module = "org.springframework.boot:spring-boot-starter-security" }
 springBootStarterResourceServer = { module = "org.springframework.boot:spring-boot-starter-oauth2-resource-server" }
-
-# Spring cloud Azure
-springCloudAzureAD = { module = "com.azure.spring:spring-cloud-azure-starter-active-directory" }
-springCloudAzureConfig = { module = "com.azure.spring:spring-cloud-azure-autoconfigure" }
-
-# Spring config from Hocon
-springHoconPropertySource = { module = "com.github.zeldigas:spring-hocon-property-source", version = "0.4.0" }
-
 # OpenAPI
 oaJacksonNullable = { module = "org.openapitools:jackson-databind-nullable" }
 swaggerAnnotations = { module = "io.swagger.core.v3:swagger-annotations" }
@@ -81,5 +70,7 @@ swaggerModels = { module = "io.swagger.core.v3:swagger-models" }
 javaxAnnotationApi = { module = "javax.annotation:javax.annotation-api" }
 
 [plugins]
+# Linter
 ktlintPlugin = {id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+# Open API
 openapiGenerator = {id = "org.openapi.generator", version.ref = "openapiTools" }
