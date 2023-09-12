@@ -40,4 +40,16 @@ kubectl run mycurlpod --image=curlimages/curl -i --tty -- sh
 $ exit
 Session ended, resume using 'kubectl attach mycurlpod -c mycurlpod -i -t' command when the pod is running
 
+# Helm
+brew install helm
+
+helm repo update
+
+# Redis k8s deploy
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm install redis bitnami/redis # Default values
+helm install redis bitnami/redis -f redis.yml # Deploy
+helm upgrade redis bitnami/redis -f redis.yml
+## Debug
+brew install redis
 ```
