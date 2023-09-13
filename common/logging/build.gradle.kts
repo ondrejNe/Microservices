@@ -22,7 +22,5 @@ repositories {
 
 dependencies {
     // Logging
-    implementation("org.slf4j:slf4j-api:2.0.7")
-//    implementation("org.slf4j:slf4j-core:2.0.7")
-//    implementation("org.slf4j:slf4j-impl:2.0.7")
+    implementation(libs.slf4jApi)
 }
