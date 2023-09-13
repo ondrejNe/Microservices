@@ -30,6 +30,7 @@ kotlin {
 // Open API specifications
 openApiGenerate {
     generatorName.set("kotlin-spring")
+
     configOptions.set(
         mapOf(
             "delegatePattern" to "true",
@@ -37,6 +38,10 @@ openApiGenerate {
             "useTags" to "true",
         )
     )
+    apiPackage.set("${project.name}.api")
+    invokerPackage.set("${project.name}.invoker")
+    modelPackage.set("${project.name}.model")
+
     inputSpec.set("${projectDir}/openapi.yaml")
 }
 
@@ -64,24 +69,30 @@ dependencies {
     implementation(libs.springBootKotlinStdLib)
     // Kotlin
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    // Open API
+    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
+    implementation("io.swagger.core.v3:swagger-models:2.2.15")
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
+    implementation("javax.validation:validation-api:2.0.1.Final")
+    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
 }
 
 tasks {
     register("sourceSetInfo") {
         group = "necasond"
 
-        doLast{
-        sourceSets.forEach { srcSet ->
-            println("[${srcSet.name}]")
-            print("-->Source directories: "+srcSet.allJava.srcDirs+"\n")
-            print("-->Output directories: "+srcSet.output.classesDirs.files+"\n")
-            print("-->Compile classpath:\n")
-            srcSet.compileClasspath.files.forEach {
-                print("  "+it.path+"\n")
+        doLast {
+            sourceSets.forEach { srcSet ->
+                println("[${srcSet.name}]")
+                print("-->Source directories: "+srcSet.allJava.srcDirs+"\n")
+                print("-->Output directories: "+srcSet.output.classesDirs.files+"\n")
+                print("-->Compile classpath:\n")
+                srcSet.compileClasspath.files.forEach {
+                    print("  "+it.path+"\n")
+                }
+                println("")
             }
-            println("")
         }
-    }
     }
 
     val fatJar = register<Jar>("fatJar") {
