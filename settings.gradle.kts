@@ -19,6 +19,6 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "0.5.0"
 }
 
-include("services:uno.service")
+// Project services
 include("services:weather.service")
 include("services:powerplant.registry.service")
