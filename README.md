@@ -52,4 +52,7 @@ helm install redis bitnami/redis -f redis.yml # Deploy
 helm upgrade redis bitnami/redis -f redis.yml
 ## Debug
 brew install redis
+
+# GitLab runner k8s deploy
+helm repo add gitlab https://charts.gitlab.io
 ```
