@@ -70,9 +70,7 @@ dependencies {
     implementation(libs.kotlinCoroutinesMdc)
     implementation(libs.kotlinReflections)
     // Logging
-    implementation(libs.logbackCore)
-    implementation(libs.logbackClassic)
-    implementation(libs.logbackLogstashEncoder)
+    implementation(project(":common:logging"))
     // Open API
     implementation(libs.springDocOpenApi)
     implementation(libs.swaggerModels)

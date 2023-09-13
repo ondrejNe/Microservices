@@ -21,11 +21,8 @@ repositories {
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.kotlinCoroutines)
-    implementation(libs.kotlinCoroutinesJdk8)
-    implementation(libs.kotlinCoroutinesMdc)
-    implementation(libs.kotlinReflections)
-    // Redis
-    implementation(libs.kreds)
+    // Logging
+    implementation("org.slf4j:slf4j-api:2.0.7")
+//    implementation("org.slf4j:slf4j-core:2.0.7")
+//    implementation("org.slf4j:slf4j-impl:2.0.7")
 }

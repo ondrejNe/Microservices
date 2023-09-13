@@ -27,9 +27,7 @@ kotlinCoroutinesJdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8
 kotlinCoroutinesMdc = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j" }
 kotlinReflections = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 # Logging
-logbackCore = { module = "ch.qos.logback:logback-core" }
-logbackClassic = { module = "ch.qos.logback:logback-classic" }
-logbackLogstashEncoder = { module = "net.logstash.logback:logstash-logback-encoder", version = "6.6" }
+
 # Testing
 junitJupiterApi = { module = "org.junit.jupiter:junit-jupiter-api" }
 junitJupiterEngine = { module = "org.junit.jupiter:junit-jupiter-engine" }
