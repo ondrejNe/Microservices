@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: powerplant-registry-pod
+  labels:
+    app.kubernetes.io/name: powerplant-registry-proxy
+spec:
+  containers:
+    - name: powerplant-registry-proxy-1
+      image: powerplant.registry.service:latest
+      ports:
+        - containerPort: 8080
+          name: http-powerplant
+      imagePullPolicy: Never
+  restartPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: powerplant-registry-service
+spec:
+  selector:
+    app.kubernetes.io/name: powerplant-registry-proxy
+  ports:
+  - name: powerplant-endpoint-port
+    protocol: TCP
+    port: 8080
+    targetPort: http-powerplant
+  type: ClusterIP

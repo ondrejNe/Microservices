@@ -3,7 +3,7 @@ package org.necasond
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication(scanBasePackages = ["org.necasond", "powerplant.registry.service.api"])
+@SpringBootApplication(scanBasePackages = ["org.necasond", "powerplant.registry.service"])
 class PowerplantRegistryApplication
 
 object Main {

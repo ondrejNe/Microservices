@@ -78,7 +78,7 @@ dependencies {
     implementation(libs.swaggerModels)
     implementation(libs.swaggerAnnotations)
     implementation(libs.javaxValidationApi)
-    compileOnly(libs.javaxServletApi)
+    implementation(libs.javaxServletApi)
     // Redis
     implementation(libs.kreds)
     implementation(project(":common:redis"))
