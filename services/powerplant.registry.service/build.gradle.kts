@@ -1,3 +1,5 @@
+import org.gradle.kotlin.dsl.resolver.buildSrcSourceRootsFilePath
+
 plugins {
     // JVM
     java
@@ -7,6 +9,8 @@ plugins {
     kotlin("plugin.spring") version libs.versions.kotlinSpring
     alias(libs.plugins.springBootPlugin)
     alias(libs.plugins.springDependencyManagementPlugin)
+    // Open API
+    alias(libs.plugins.openapiGenerator)
 }
 
 // JVM plugins specifications
@@ -22,6 +26,26 @@ application {
 }
 kotlin {
     jvmToolchain(javaVersion)
+}
+// Open API specifications
+openApiGenerate {
+    generatorName.set("kotlin-spring")
+    configOptions.set(
+        mapOf(
+            "delegatePattern" to "true",
+            "dateLibrary" to "java8",
+            "useTags" to "true",
+        )
+    )
+    inputSpec.set("${projectDir}/openapi.yaml")
+}
+
+sourceSets {
+    main {
+        java {
+            setSrcDirs(listOf("${projectDir}/build/generate-resources/main/src/main/kotlin"))
+        }
+    }
 }
 
 repositories {
@@ -43,6 +67,23 @@ dependencies {
 }
 
 tasks {
+    register("sourceSetInfo") {
+        group = "necasond"
+
+        doLast{
+        sourceSets.forEach { srcSet ->
+            println("[${srcSet.name}]")
+            print("-->Source directories: "+srcSet.allJava.srcDirs+"\n")
+            print("-->Output directories: "+srcSet.output.classesDirs.files+"\n")
+            print("-->Compile classpath:\n")
+            srcSet.compileClasspath.files.forEach {
+                print("  "+it.path+"\n")
+            }
+            println("")
+        }
+    }
+    }
+
     val fatJar = register<Jar>("fatJar") {
         group = "necasond"
         // We need this for Gradle optimization to work

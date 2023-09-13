@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  title: Powerplant registry - Api scheme
+  version: 1.0.0
+paths:
+  # /:
+  #   get:
+  #     summary: Get service info message
+  /powerplant:
+    post:
+      summary: Add  powerplant info
+      description: Add  powerplant info
+      operationId: addPowerplant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Powerplant'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Powerplant'
+        '405':
+          description: Validation exception
+          
+  /powerplant/{plantId}:
+    get:
+      summary: Retrieve an existing powerplant info
+      description: Retrieve an existing powerplant info
+      operationId: getPlantById
+      parameters:
+        - name: plantId
+          in: path
+          description: ID of plant to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Powerplant'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Powerplant not found
+    
+    delete:
+      summary: Remove an existing powerplant info
+      description: Remove an existing powerplant info
+      operationId: deletePlantById
+      parameters:
+        - name: plantId
+          in: path
+          description: Plant to remove
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid plant value
+      
+  # /powerplant/all:
+  #   get:
+    
+components:
+  schemas:
+    Powerplant:
+      type: object
+      properties:
+        plantId:
+          type: string
+          example: Solar-park-Prerov
+        systemId:
+          type: integer
+          format: int64
+          example: 420111777
