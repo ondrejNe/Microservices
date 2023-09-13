@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.resolver.buildSrcSourceRootsFilePath
-
 plugins {
     // JVM
     java
@@ -65,16 +63,33 @@ dependencies {
     implementation(libs.springBootActuator)
     implementation(libs.springBootDataRest)
     implementation(libs.springBootJacksonKotlin)
-    implementation(libs.kotlinReflections)
     implementation(libs.springBootKotlinStdLib)
     // Kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation(libs.kotlinCoroutines)
+    implementation(libs.kotlinCoroutinesJdk8)
+    implementation(libs.kotlinCoroutinesMdc)
+    implementation(libs.kotlinReflections)
+    // Logging
+    implementation(libs.logbackCore)
+    implementation(libs.logbackClassic)
+    implementation(libs.logbackLogstashEncoder)
     // Open API
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
-    implementation("io.swagger.core.v3:swagger-models:2.2.15")
-    implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
-    implementation("javax.validation:validation-api:2.0.1.Final")
-    compileOnly("javax.servlet:javax.servlet-api:4.0.1")
+    implementation(libs.springDocOpenApi)
+    implementation(libs.swaggerModels)
+    implementation(libs.swaggerAnnotations)
+    implementation(libs.javaxValidationApi)
+    compileOnly(libs.javaxServletApi)
+
+    // Testing
+    testImplementation(libs.junitJupiterApi)
+    testImplementation(libs.junitJupiterEngine)
+    testImplementation(libs.junitJupiterParams)
+    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoInline)
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.mockitoJunitJupiter)
+    testImplementation(libs.assertJ)
+    testImplementation(libs.kotlinCoroutineTest)
 }
 
 tasks {
