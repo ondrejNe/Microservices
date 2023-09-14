@@ -105,7 +105,7 @@ dependencies {
     testImplementation(libs.mockitoJunitJupiter)
     testImplementation(libs.assertJ)
     testImplementation(libs.kotlinCoroutineTest)
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation(libs.bootTest)
 }
 
 tasks {

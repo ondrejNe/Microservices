@@ -16,7 +16,7 @@ import powerplant.registry.service.model.Powerplant
 
 @Component
 class RegistryController(
-    private val env: PowerPlantRegistryEnv
+    private val env: PowerPlantRegistryEnv = PowerPlantRegistryEnv()
 ) : DefaultApiDelegate, ILoggable {
 
     private val logger = logger()

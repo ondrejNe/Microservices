@@ -40,6 +40,7 @@ mockitoKotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "m
 mockitoJunitJupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockitoJunitJupiter" }
 assertJ = { module = "org.assertj:assertj-core" }
 kotlinCoroutineTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test" }
+bootTest = { module = "org.springframework.boot:spring-boot-starter-test"}
 # Spring
 thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf"}
 jettyWebSocketClient = { module = "org.eclipse.jetty.websocket:websocket-client" }

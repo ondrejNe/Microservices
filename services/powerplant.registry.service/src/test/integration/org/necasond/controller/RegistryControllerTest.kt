@@ -34,6 +34,9 @@ class RegistryControllerTest {
     @MockBean
     lateinit var redisClientFactory: RedisClientFactory
 
+    @MockBean
+    lateinit var mockEnv: PowerPlantRegistryEnv
+
 //    @OptIn(ExperimentalCoroutinesApi::class)
 //    @Test
 //    fun `should add powerplant successfully`() = runTest {
