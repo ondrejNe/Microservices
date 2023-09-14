@@ -42,6 +42,7 @@ test:
   when: manual
   script:
     - echo "Running tests..."
+    - sh $CI_PROJECT_DIR/gradlew openApiGenerate
     - sh $CI_PROJECT_DIR/gradlew test
 
 create:

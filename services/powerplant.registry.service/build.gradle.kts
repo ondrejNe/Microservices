@@ -49,6 +49,16 @@ sourceSets {
             setSrcDirs(listOf("${projectDir}/build/generate-resources/main/src/main/kotlin"))
         }
     }
+    test {
+        java {
+            setSrcDirs(
+                listOf(
+                    "${projectDir}/src/test/integration",
+                    "${projectDir}/src/test/unit"
+                )
+            )
+        }
+    }
 }
 
 repositories {
