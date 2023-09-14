@@ -6,13 +6,14 @@ import org.necasond.redis.RedisEnv
 
 data class PowerPlantRegistryConfig (
     val redis: RedisEnv = RedisEnv(),
+    val envProvider: EnvProvider = DefaultEnvProvider,
 ) {
     companion object : ILoggable {
         private val logger = logger()
     }
 
     fun load(): PowerPlantRegistryConfig {
-        val systemEnv = System.getenv()
+        val systemEnv = envProvider.getEnv()
         logger.info("System environment: $systemEnv")
 
         val redisEnv = RedisEnv(
@@ -26,4 +27,12 @@ data class PowerPlantRegistryConfig (
             redis = redisEnv,
         )
     }
+}
+
+interface EnvProvider {
+    fun getEnv(): Map<String, String>
+}
+
+object DefaultEnvProvider : EnvProvider {
+    override fun getEnv(): Map<String, String> = System.getenv()
 }

@@ -107,9 +107,6 @@ dependencies {
     testImplementation(libs.assertJ)
     testImplementation(libs.kotlinCoroutineTest)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.testcontainers:testcontainers")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.springframework.boot:spring-boot-starter-data-redis:3.1.3")
 }
 
 tasks {

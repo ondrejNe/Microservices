@@ -61,6 +61,10 @@ sourceSets {
     }
 }
 
+tasks.test {
+    useJUnitPlatform()
+}
+
 repositories {
     mavenCentral()
     gradlePluginPortal()
@@ -101,6 +105,7 @@ dependencies {
     testImplementation(libs.mockitoJunitJupiter)
     testImplementation(libs.assertJ)
     testImplementation(libs.kotlinCoroutineTest)
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks {
