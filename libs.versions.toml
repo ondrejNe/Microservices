@@ -41,8 +41,6 @@ mockitoJunitJupiter = { module = "org.mockito:mockito-junit-jupiter", version.re
 assertJ = { module = "org.assertj:assertj-core" }
 kotlinCoroutineTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test" }
 # Spring
-springMessaging = { module = "org.springframework:spring-messaging" }
-springWebSocket = { module = "org.springframework:spring-websocket" }
 jettyWebSocketClient = { module = "org.eclipse.jetty.websocket:websocket-client" }
 jettyJavaxWebSocketClientImpl = { module = "org.eclipse.jetty.websocket:javax-websocket-client-impl" }
 springBootStarterWeb = { module = "org.springframework.boot:spring-boot-starter-web" }

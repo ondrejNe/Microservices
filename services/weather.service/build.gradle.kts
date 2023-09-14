@@ -7,6 +7,8 @@ plugins {
     kotlin("plugin.spring") version libs.versions.kotlinSpring
     alias(libs.plugins.springBootPlugin)
     alias(libs.plugins.springDependencyManagementPlugin)
+    // Open API
+    alias(libs.plugins.openapiGenerator)
 }
 
 // JVM plugins specifications
@@ -23,6 +25,31 @@ application {
 kotlin {
     jvmToolchain(javaVersion)
 }
+// Open API specifications
+openApiGenerate {
+    generatorName.set("kotlin-spring")
+
+    configOptions.set(
+        mapOf(
+            "delegatePattern" to "true",
+            "dateLibrary" to "java8",
+            "useTags" to "true",
+        )
+    )
+    apiPackage.set("${project.name}.api")
+    invokerPackage.set("${project.name}.invoker")
+    modelPackage.set("${project.name}.model")
+
+    inputSpec.set("${projectDir}/openapi.yaml")
+}
+
+sourceSets {
+    main {
+        java {
+            setSrcDirs(listOf("${projectDir}/build/generate-resources/main/src/main/kotlin"))
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -36,18 +63,55 @@ dependencies {
     implementation(libs.springBootActuator)
     implementation(libs.springBootDataRest)
     implementation(libs.springBootJacksonKotlin)
-    implementation(libs.kotlinReflections)
     implementation(libs.springBootKotlinStdLib)
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     // Kotlin
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.7.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-debug:1.7.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-collections-immutable:0.3.5")
+    implementation(libs.kotlinCoroutines)
+    implementation(libs.kotlinCoroutinesJdk8)
+    implementation(libs.kotlinCoroutinesMdc)
+    implementation(libs.kotlinReflections)
+    // Logging
+    implementation(project(":common:logging"))
+    // Open API
+    implementation(libs.springDocOpenApi)
+    implementation(libs.swaggerModels)
+    implementation(libs.swaggerAnnotations)
+    implementation(libs.javaxValidationApi)
+    implementation(libs.javaxServletApi)
     // Redis
-    implementation("io.github.crackthecodeabhi:kreds:0.9.0")
+    implementation(libs.kreds)
+    implementation(project(":common:redis"))
+
+    // Testing
+    testImplementation(libs.junitJupiterApi)
+    testImplementation(libs.junitJupiterEngine)
+    testImplementation(libs.junitJupiterParams)
+    testImplementation(libs.mockitoCore)
+    testImplementation(libs.mockitoInline)
+    testImplementation(libs.mockitoKotlin)
+    testImplementation(libs.mockitoJunitJupiter)
+    testImplementation(libs.assertJ)
+    testImplementation(libs.kotlinCoroutineTest)
 }
 
 tasks {
+    register("sourceSetInfo") {
+        group = "necasond"
+
+        doLast {
+            sourceSets.forEach { srcSet ->
+                println("[${srcSet.name}]")
+                print("-->Source directories: "+srcSet.allJava.srcDirs+"\n")
+                print("-->Output directories: "+srcSet.output.classesDirs.files+"\n")
+                print("-->Compile classpath:\n")
+                srcSet.compileClasspath.files.forEach {
+                    print("  "+it.path+"\n")
+                }
+                println("")
+            }
+        }
+    }
+
     val fatJar = register<Jar>("fatJar") {
         group = "necasond"
         // We need this for Gradle optimization to work

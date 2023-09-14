@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Forecast</title>
+</head>
+<body>
+
+<h1>Weather Forecast</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Plant ID</th>
+            <th>Forecast</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="forecast : ${forecasts}">
+            <td th:text="${forecast.plantId}"></td>
+            <td th:text="${forecast.forecast}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

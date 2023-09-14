@@ -1,0 +1,18 @@
+openapi: 3.0.3
+info:
+  title: Weather forecast - Api scheme
+  version: 1.0.0
+paths:
+  /forecast:
+    get:
+      summary: Retrieve the forecast
+      description: Retrieve the forecast object array
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/html:
+              schema:
+                type: string
+        '400':
+          description: Invalid

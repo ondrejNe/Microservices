@@ -38,4 +38,18 @@ object RedisClientUtil {
         }
         close()
     }
+
+    suspend fun KredsClient.getAll(
+        pass: String,
+    ): Map<String, String> {
+        val value: MutableMap<String, String> = mutableMapOf()
+        use { client ->
+            client.apply { auth(pass) }
+            client.keys("*").forEach { key ->
+                value[key] = client.get(key) ?: ""
+            }
+        }
+        close()
+        return value.toMap()
+    }
 }
