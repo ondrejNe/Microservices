@@ -25,3 +25,5 @@ include("services:powerplant.registry.service")
 // Project common libs
 include("common:redis")
 include("common:logging")
+include("common:untitled")
+findProject(":common:untitled")?.name = "untitled"

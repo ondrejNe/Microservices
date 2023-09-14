@@ -61,11 +61,6 @@ class WeatherController(
                 forecast = it.value
             )
         }
-        if (forecasts.isEmpty()) {
-            logger.warn("No forecast data available")
-            val model = mapOf("message" to "No forecast data available")
-            return ModelAndView("error400", model)
-        }
 
         logger.info("Successfully retrieved forecast table")
         return ModelAndView("forecast").apply {

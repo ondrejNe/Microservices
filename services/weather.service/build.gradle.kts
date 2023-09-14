@@ -49,6 +49,20 @@ sourceSets {
             setSrcDirs(listOf("${projectDir}/build/generate-resources/main/src/main/kotlin"))
         }
     }
+    test {
+        java {
+            setSrcDirs(
+                listOf(
+                    "${projectDir}/src/test/integration",
+                    "${projectDir}/src/test/unit"
+                )
+            )
+        }
+    }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
 
 repositories {
@@ -92,6 +106,10 @@ dependencies {
     testImplementation(libs.mockitoJunitJupiter)
     testImplementation(libs.assertJ)
     testImplementation(libs.kotlinCoroutineTest)
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.testcontainers:testcontainers")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.springframework.boot:spring-boot-starter-data-redis:3.1.3")
 }
 
 tasks {
