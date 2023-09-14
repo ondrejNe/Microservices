@@ -5,5 +5,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class PowerPlantRegistryEnv {
-    val config: PowerPlantRegistryConfig = PowerPlantRegistryConfig()
+    val config: PowerPlantRegistryConfig
+    = PowerPlantRegistryConfig().load()
 }

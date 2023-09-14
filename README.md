@@ -22,6 +22,8 @@ kubectl config use-context rancher-desktop
 kubectl create -f create-redispod.yml
 kubectl apply -f deployment.yml
 
+kubectl apply -f prod --recursive 
+
 kubectl get pods -o wide | sort
 
 kubectl delete pod <my-pod>
