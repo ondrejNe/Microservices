@@ -6,6 +6,7 @@ import org.necasond.config.WeatherEnv
 import org.necasond.logging.ILoggable
 import org.necasond.logging.logger
 import org.necasond.model.Forecast
+import org.necasond.model.ForecastResolver
 import org.necasond.redis.RedisClientFactory
 import org.necasond.redis.RedisClientUtil.getAll
 import org.springframework.http.MediaType
@@ -50,7 +51,16 @@ class WeatherController(
             return ModelAndView("error500", model)
         }
 
-        val forecasts = result.map { Forecast(it.key, it.value) }
+        val forecasts = result
+            .mapValues {
+                ForecastResolver.resolve(it.value)
+            }
+            .map {
+            Forecast(
+                plantId = it.key,
+                forecast = it.value
+            )
+        }
         if (forecasts.isEmpty()) {
             logger.warn("No forecast data available")
             val model = mapOf("message" to "No forecast data available")

@@ -64,7 +64,7 @@ dependencies {
     implementation(libs.springBootDataRest)
     implementation(libs.springBootJacksonKotlin)
     implementation(libs.springBootKotlinStdLib)
-    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation(libs.thymeleaf)
     // Kotlin
     implementation(libs.kotlinCoroutines)
     implementation(libs.kotlinCoroutinesJdk8)
