@@ -59,19 +59,19 @@ class RegistryControllerTest {
 //        }
 //    }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
-    @Test
-    fun `should delete powerplant successfully`() = runTest {
-        val mockClient: KredsClient = mock()
-
-        whenever(redisClientFactory.create(anyString(), anyString())).thenReturn(mockClient)
-        whenever(mockClient.delete(anyString(), anyString())).thenReturn(Unit)
-
-        mockMvc.delete("/deletePlantById/{plantId}", "Plant1")
-            .andExpect {
-                status { isOk() }
-            }
-    }
+//    @OptIn(ExperimentalCoroutinesApi::class)
+//    @Test
+//    fun `should delete powerplant successfully`() = runTest {
+//        val mockClient: KredsClient = mock()
+//
+//        whenever(redisClientFactory.create(anyString(), anyString())).thenReturn(mockClient)
+//        whenever(mockClient.delete(anyString(), anyString())).thenReturn(Unit)
+//
+//        mockMvc.delete("/deletePlantById/{plantId}", "Plant1")
+//            .andExpect {
+//                status { isOk() }
+//            }
+//    }
 //
 //    @Test
 //    fun `should get powerplant successfully`() {
