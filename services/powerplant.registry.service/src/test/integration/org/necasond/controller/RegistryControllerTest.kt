@@ -1,28 +1,12 @@
 package org.necasond.controller
 
-import io.github.crackthecodeabhi.kreds.connection.KredsClient
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers.anyString
-import org.mockito.kotlin.*
 import org.necasond.config.PowerPlantRegistryEnv
 import org.necasond.redis.RedisClientFactory
-import org.necasond.redis.RedisClientUtil.delete
-import org.necasond.redis.RedisClientUtil.upload
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
-import org.springframework.context.annotation.Bean
-import org.springframework.http.MediaType
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder.json
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.post
-import org.springframework.test.web.servlet.delete
-import org.springframework.test.web.servlet.get
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import powerplant.registry.service.model.Powerplant
 
 @SpringBootTest
 @AutoConfigureMockMvc
