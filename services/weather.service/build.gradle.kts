@@ -54,7 +54,8 @@ sourceSets {
             setSrcDirs(
                 listOf(
                     "${projectDir}/src/test/integration",
-                    "${projectDir}/src/test/unit"
+                    "${projectDir}/src/test/unit",
+                    "${projectDir}/src/test/blackbox"
                 )
             )
         }
