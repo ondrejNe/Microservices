@@ -1,9 +1,16 @@
 # Kubectl deployment files
+Comm```shell
 kubectl apply -f prod --recursive
+```
+
+```shell
 kubectl delete -f prod --recursive
+```
 
 # Helm deployment files
+```shell
 helm upgrade redis bitnami/redis -f redis-helm.yml
+```
 
 # Docker commands
 ```shell
